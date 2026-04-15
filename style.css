@@ -1,0 +1,487 @@
+/* --- Root Variables / Settings --- */
+:root {
+    --bg-dark: #202022; /* Page background */
+    --bg-card: #28282A; /* Dark card background */
+    --accent-primary: #FFCC33; /* Gold/Yellow button */
+    --accent-secondary: #00BF96; /* Teal/Green shape and accent text */
+    --text-primary: #FFFFFF; /* Main content text */
+    --text-muted: #BBBBBB; /* Descriptive/secondary text */
+    
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Poppins', sans-serif;
+    
+    --container-max-width: 1200px;
+}
+
+/* --- Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scrolling from decorative shapes */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- Layout Utilities --- */
+.container {
+    width: 90%;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Page wrapper stores global background decorative shapes */
+.page-wrapper {
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* -- Pure CSS Global Background Decorations -- */
+.page-wrapper::before,
+.page-wrapper::after,
+.portfolio::before,
+.stats::before,
+.cta-inner::after {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.15; /* Subtly blend them into the background */
+    z-index: -1;
+}
+
+/* Teal ring by Hero (Left Side) */
+.page-wrapper::before {
+    width: 350px;
+    height: 350px;
+    border: 30px solid var(--accent-secondary);
+    border-radius: 50%;
+    top: 50px;
+    left: -150px;
+}
+
+/* Orange semicircle by Portfolio (Left Side) */
+.page-wrapper::after {
+    width: 250px;
+    height: 125px; /* Half circle */
+    background-color: var(--accent-primary);
+    border-radius: 125px 125px 0 0; /* Top curve */
+    transform: rotate(180deg);
+    top: 1700px;
+    left: -50px;
+}
+
+/* Large Teal ring in the middle (Right side near portfolio) */
+.portfolio::before {
+    width: 300px;
+    height: 300px;
+    border: 30px solid var(--accent-secondary);
+    border-radius: 50%;
+    right: -100px;
+    top: 30%;
+}
+
+/* Large Teal ring near CTA (Bottom Right) */
+.cta-inner::after {
+    width: 150px;
+    height: 150px;
+    border: 20px solid var(--accent-secondary);
+    border-radius: 50%;
+    bottom: -60px;
+    right: -60px;
+}
+
+/* Small orange arcs near Stats (Bottom left) and Testimonial (Top right) */
+.stats::before {
+    width: 100px;
+    height: 100px;
+    border: 15px solid var(--accent-primary);
+    border-radius: 50%;
+    left: -40px;
+    bottom: 50px;
+}
+
+/* --- Typographic Elements --- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+.hero-title { font-size: 3.5rem; line-height: 1.2; margin-bottom: 20px; }
+.section-title { font-size: 2.2rem; margin-bottom: 15px; }
+.card-title { font-size: 1.3rem; margin-bottom: 10px; }
+
+p, .hero-desc, .section-desc, .card-text {
+    font-family: var(--font-body);
+    font-weight: 300;
+    color: var(--text-muted);
+}
+
+.section-tagline {
+    font-family: var(--font-body);
+    color: var(--accent-secondary);
+    text-transform: capitalize;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.section-desc, .hero-desc {
+    max-width: 650px;
+    margin-bottom: 30px;
+}
+
+/* --- Component Buttons --- */
+.btn {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 12px 30px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--accent-primary);
+    color: #000000;
+}
+.btn-primary:hover {
+    background-color: #E6B82E;
+}
+
+.btn-secondary {
+    background-color: var(--bg-card);
+    color: var(--text-muted);
+}
+.btn-secondary:hover {
+    background-color: #333336;
+    color: var(--text-primary);
+}
+
+.read-more {
+    font-family: var(--font-body);
+    color: var(--accent-secondary);
+    font-weight: 500;
+}
+.read-more:hover {
+    color: var(--text-primary);
+}
+
+/* --- Section Styling --- */
+
+/* 1. Header */
+.main-header {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--text-primary);
+}
+
+.nav-menu a {
+    font-family: var(--font-body);
+    font-weight: 300;
+    margin: 0 20px;
+    color: var(--text-muted);
+}
+.nav-menu a:hover {
+    color: var(--text-primary);
+}
+
+/* 2. Hero */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 40px;
+    padding-bottom: 150px;
+}
+
+.hero-content {
+    flex: 0 0 50%;
+}
+
+.hero-image-wrapper {
+    flex: 0 0 40%;
+    position: relative;
+    /* Create the teal background circle around Areeb's head */
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image-wrapper::before {
+    content: '';
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    background-color: var(--accent-secondary);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1; /* Place circle behind image */
+}
+
+.profile-img {
+    max-height: 550px;
+    position: relative;
+    z-index: 2; /* Place Areeb in front of circle */
+}
+
+/* 3. Features (Why Hire Me) */
+.features {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    padding-bottom: 120px;
+}
+
+.feature-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.hire-me-content {
+    flex: 0 0 45%;
+}
+
+.card {
+    background-color: var(--bg-card);
+    padding: 30px 20px;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-icon {
+    margin: 0 auto 15px auto;
+    max-height: 40px;
+}
+
+.card-featured {
+    background-color: var(--accent-secondary);
+    color: #ffffff;
+}
+.card-featured .card-title,
+.card-featured .card-text {
+    color: #ffffff;
+}
+
+/* 4. Portfolio */
+.portfolio {
+    padding-bottom: 100px;
+}
+
+.portfolio-item {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    padding-bottom: 120px;
+}
+
+/* Alternate order by changing CSS row order */
+.portfolio-item.image-left {
+    flex-direction: row-reverse;
+}
+
+.portfolio-content, .portfolio-image {
+    flex: 1;
+}
+
+.portfolio-img {
+    border-radius: 12px;
+    width: 100%;
+}
+
+.center-btn {
+    text-align: center;
+}
+
+/* 5. Stats */
+.stats {
+    padding-bottom: 120px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.stat-item {
+    background-color: var(--bg-card);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.stat-number {
+    font-family: var(--font-heading);
+    color: var(--accent-secondary);
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    color: var(--text-muted);
+}
+
+/* 6. Testimonial */
+.testimonial {
+    padding-bottom: 150px;
+}
+
+.testimonial-card {
+    background-color: var(--bg-card);
+    padding: 50px;
+    border-radius: 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.client-photo-wrapper {
+    flex: 0 0 150px;
+}
+.client-img {
+    border-radius: 15px;
+    width: 100%;
+}
+
+.testimonial-content {
+    flex: 1;
+    position: relative;
+}
+
+.quote-icon {
+    color: var(--accent-secondary);
+    font-size: 4rem;
+    font-weight: 700;
+    position: absolute;
+    top: -30px;
+    left: 0;
+}
+
+.testimonial-text {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    margin-top: 30px; /* Space for quote icon */
+}
+
+.client-name {
+    font-weight: 500;
+    color: var(--accent-secondary);
+}
+.client-title {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.pagination {
+    text-align: center;
+    margin-top: 40px;
+}
+.dot {
+    height: 10px;
+    width: 10px;
+    background-color: var(--bg-card);
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 5px;
+}
+.dot.active {
+    background-color: var(--accent-primary);
+}
+
+/* 7. Call to Action (CTA) */
+.cta {
+    padding-bottom: 100px;
+}
+
+.cta-inner {
+    background-color: var(--bg-card);
+    padding: 60px 40px;
+    border-radius: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* For decorative circle bottom right */
+}
+
+.cta-inner .section-desc {
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 8. Footer */
+.main-footer {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding: 40px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-logo {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.copyright {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.social-links a:hover {
+    color: var(--text-primary);
+}
