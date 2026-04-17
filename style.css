@@ -38,7 +38,7 @@ a {
 img {
     max-width: 100%;
     height: auto;
-    display: block;
+    display: center;
 }
 
 /* --- Layout Utilities --- */
@@ -134,7 +134,7 @@ h1, h2, h3, h4, h5, h6 {
 p, .hero-desc, .section-desc, .card-text {
     font-family: var(--font-body);
     font-weight: 300;
-    color: var(--text-muted);
+    color: white(--text-muted);
 }
 
 .section-tagline {
@@ -267,6 +267,7 @@ p, .hero-desc, .section-desc, .card-text {
 .feature-grid {
     flex: 1;
     display: grid;
+    align-items: center;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: 20px;
@@ -274,21 +275,27 @@ p, .hero-desc, .section-desc, .card-text {
 
 .hire-me-content {
     flex: 0 0 45%;
+    padding: 0px;
+
 }
 
 .card {
-    background-color: var(--bg-card); 
+    background-color: #25262A;
     padding: 30px 20px;
     border-radius: 12px;
     text-align: center;
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-
+/* Hover effect for card Icons */
+.card:hover .cardicon { 
+    background-image: linear-gradient(to bottom, #2C8658,  #64F4AB);
+    border-radius: 100%;
+}
 
 /* Hover effect for ALL cards */
 .card:hover {
-background-color: #00BF96;  /* green hover */
+background-image: linear-gradient(to bottom, #64F4AB, #2C8658);  /* green hover card*/
 transform: translateY(-5px);
 box-shadow: 0 10px 25px rgba(0, 191, 150, 0.4);
 }  
@@ -377,12 +384,12 @@ box-shadow: 0 10px 25px rgba(0, 191, 150, 0.4);
 
 /* 6. Testimonial */
 .testimonial {
-    padding-bottom: 150px;
+    padding: 10px 120px 50px 120px;
 }
 
 .testimonial-card {
     background-color: var(--bg-card);
-    padding: 50px;
+    padding: 50px 50px 50px 50px;
     border-radius: 15px;
     display: flex;
     align-items: flex-start;
@@ -440,6 +447,50 @@ box-shadow: 0 10px 25px rgba(0, 191, 150, 0.4);
 }
 .dot.active {
     background-color: var(--accent-primary);
+}
+
+/* Slider Wrapper */
+.testimonial-slider {
+    overflow: hidden;
+    position: relative;
+}
+
+/* Track */
+.testimonial-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Each Slide */
+.testimonial-card {
+    min-width: 100%;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    font-size: 18px;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.arrow.left {
+    color: #00BF96;
+    left: -10px;
+}
+
+.arrow.right {
+    color: #00BF96;
+    right: -10px;
+}
+
+.arrow:hover {
+    background: var(--accent-primary);
+    color: #fff;
 }
 
 /* 7. Call to Action (CTA) */
